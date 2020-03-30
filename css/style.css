@@ -1,0 +1,217 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+}
+html {
+  font-size: 1vw;
+  line-height: 1.15;
+}
+
+body {
+  width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background: #f5f5f5;
+}
+
+.wrapper {
+	margin: auto;
+    margin-bottom: 35px;
+	width: 600px;
+}
+
+.content-title {
+	width: 100%;
+	margin: 0;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+}
+
+.header {
+	position: relative;
+	background: #fff;
+	/*box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);*/
+}
+
+.todo-toggle {
+	position: absolute;
+	width: 40px;
+    height: 40px;
+    font-size: 40px;
+    top: 25px;
+    left: 9px;
+    color: #e6e6e6;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.todo-new {
+	width: 100%;
+	border: none;
+	padding: 16px 16px 16px 60px;
+	font-size: 20px;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	box-sizing: border-box;
+}
+
+.todo-list li {
+	display: block;
+	position: relative;
+	height: 58px;
+	font-size: 24px;
+    background: #fff;
+    border-bottom: 1px solid #ededed; 
+}
+
+.todo-list li:hover .todo-close {
+    transition: opacity .3s ease;
+    opacity: 1;
+}
+
+.todo-input {
+	display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 9px;
+    left: 0px;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.todo-input::after {
+	content: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+	width: 20px;
+	height: 20px;
+	position: absolute;
+}
+
+.todo-list li.completed .todo-input::after {
+    content: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+.todo-list li label {
+    display: block;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    line-height: 1.2;
+}
+
+.todo-list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+    transition: color 0.4s;
+}
+
+.todo-close {
+	display: block;
+    position: absolute;
+    background: none;
+    border: none;
+    right: 5px;
+    top: 9px;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.todo-close::after {
+	content: '×';
+}
+
+.footer {
+    position: relative;
+	display: flex;
+	justify-content: space-between;
+    background: #ffff;
+	font-size: 15px;
+	color: #777;
+    padding: 10px 15px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-count {
+	padding-top: 3px;
+}
+
+.filters {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+    width: 40%;
+}
+
+.filters li {
+	color: inherit;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.filters li.active {
+	border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-btn {
+	background: none;
+	border: none;
+	color: #777;
+	font-size: 100%;
+	cursor: pointer;
+}
+
+.main-footer__btn:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:554px) {
+	.wrapper {
+		width:300px;
+		padding: 0 15px;
+	}
+	.footer {
+		display: inline-block;
+    	padding-left: 50px;
+        width: 100%;
+    	box-sizing: border-box;
+	}
+	.filters {
+		width: auto;
+	}
+}
+
+@media (min-width: 555px) {
+	.wrapper {
+		width: 500px;
+	}
+}
